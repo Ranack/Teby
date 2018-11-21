@@ -1,0 +1,18 @@
+.App-header {
+    padding-top: 10px;
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+    background-color: #083b66;
+    align-items: center;
+}
+.Logo {
+    padding-left: 10px;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+}
