@@ -3,7 +3,6 @@ import './App.css';
 import AppHeader from './components/header/AppHeader'
 import ArticlesLine from "./components/body/ArticlesLine";
 
-
 class App extends Component {
 
     constructor(props) {
@@ -20,19 +19,19 @@ class App extends Component {
         fetch('https://newsapi.org/v2/everything?q=xbox-one&language=fr&sortBy=publishedAt&apiKey=380aefcae6f84f9e80f21cea73f42741')
             .then(response => {
                 response.json()
-                    .then(data => this.setState({articlesXboxOne: data}));
+                    .then(data => this.setState({articlesXboxOne: data.articles}));
             });
 
         fetch('https://newsapi.org/v2/everything?q=ps4&language=fr&sortBy=publishedAt&apiKey=380aefcae6f84f9e80f21cea73f42741')
             .then(response => {
                 response.json()
-                    .then(data => this.setState({articlesPs4: data}));
+                    .then(data => this.setState({articlesPs4: data.articles}));
             });
 
         fetch('https://newsapi.org/v2/everything?q=switch&language=fr&sortBy=publishedAt&apiKey=380aefcae6f84f9e80f21cea73f42741')
             .then(response => {
                 response.json()
-                    .then(data => this.setState({articlesSwitch: data}));
+                    .then(data => this.setState({articlesSwitch: data.articles}));
             });
     }
 
