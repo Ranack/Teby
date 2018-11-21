@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import AppHeader from './components/AppHeader'
-import Body from './components/Body'
+import AppHeader from './components/header/AppHeader'
+import ArticlesLine from "./components/body/ArticlesLine";
 
 
 class App extends Component {
@@ -21,22 +21,18 @@ class App extends Component {
             .then(response => {
                 response.json()
                     .then(data => this.setState({articlesXboxOne: data}));
-
-
             });
+
         fetch('https://newsapi.org/v2/everything?q=ps4&language=fr&sortBy=publishedAt&apiKey=380aefcae6f84f9e80f21cea73f42741')
             .then(response => {
                 response.json()
                     .then(data => this.setState({articlesPs4: data}));
-
-
             });
+
         fetch('https://newsapi.org/v2/everything?q=switch&language=fr&sortBy=publishedAt&apiKey=380aefcae6f84f9e80f21cea73f42741')
             .then(response => {
                 response.json()
                     .then(data => this.setState({articlesSwitch: data}));
-
-
             });
     }
 
@@ -45,7 +41,10 @@ class App extends Component {
         return (
             <div className="App">
                 <AppHeader/>
-                <Body />
+                <h1>Actualité autour des jeux vidéos</h1>
+                <ArticlesLine data={this.state.articlesXboxOne}/>
+                <ArticlesLine data={this.state.articlesPs4}/>
+                <ArticlesLine data={this.state.articlesSwitch}/>
             </div>
         );
     }
